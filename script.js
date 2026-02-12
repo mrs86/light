@@ -86,103 +86,67 @@ const chineseHours = [
     { name: '亥时', start: 21, end: 23, description: '人定' }
 ];
 
-// 不同时辰的中国古风图片（每个时辰6张）
+// 不同时辰的背景渐变色
 const landscapeImages = {
     子时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20landscape%2C%20moon%20and%20stars%2C%20traditional%20architecture%2C%20ink%20painting%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20midnight%20scene%2C%20silent%20village%2C%20lanterns%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20mountain%20temple%2C%20moonlight%2C%20zen%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20palace%2C%20lanterns%2C%20traditional%20architecture%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20garden%2C%20moonlight%2C%20bamboo%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20river%2C%20boat%2C%20lanterns%2C%20ink%20painting&image_size=landscape_16_9"
+        "linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%)", // 深夜星空
+        "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)", // 深夜山脉
+        "linear-gradient(135deg, #0f3460 0%, #16213e 100%)"  // 深夜河流
     ],
     丑时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20early%20morning%20before%20dawn%2C%20dark%20sky%2C%20village%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20to%20dawn%2C%20mountains%2C%20mist%2C%20ink%20painting%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20pre-dawn%20scene%2C%20river%2C%20fishing%20boat%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20early%20morning%20mountain%20path%2C%20mist%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20pre-dawn%20village%2C%20lanterns%20fading%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20dawn%20approaching%2C%20mountains%2C%20silhouette%2C%20traditional%20style&image_size=landscape_16_9"
+        "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)", // 凌晨山脉
+        "linear-gradient(135deg, #16213e 0%, #0f3460 100%)", // 凌晨河流
+        "linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"  // 凌晨村庄
     ],
     寅时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20dawn%20landscape%2C%20first%20light%2C%20mountains%2C%20mist%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunrise%20beginning%2C%20village%2C%20smoke%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20dawn%20river%2C%20golden%20light%2C%20fishing%20boats%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20dawn%20mountain%20temple%2C%20first%20light%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunrise%20village%2C%20morning%20mist%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20dawn%20forest%2C%20sunlight%20through%20trees%2C%20ink%20painting&image_size=landscape_16_9"
+        "linear-gradient(135deg, #16213e 0%, #f1c40f 100%)", // 黎明曙光
+        "linear-gradient(135deg, #f1c40f 0%, #e67e22 100%)", // 日出东方
+        "linear-gradient(135deg, #e67e22 0%, #16213e 100%)"  // 黎明村庄
     ],
     卯时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunrise%20landscape%2C%20mountains%2C%20mist%2C%20traditional%20architecture%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20morning%20village%2C%20sunrise%2C%20smoke%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunrise%20river%2C%20golden%20hues%2C%20fishing%20boats%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20morning%20palace%2C%20sunrise%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20morning%20garden%2C%20sunlight%2C%20flowers%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunrise%20mountain%20path%2C%20traveler%2C%20traditional%20style&image_size=landscape_16_9"
+        "linear-gradient(135deg, #f1c40f 0%, #e67e22 100%)", // 日出东方
+        "linear-gradient(135deg, #e67e22 0%, #3498db 100%)", // 清晨天空
+        "linear-gradient(135deg, #3498db 0%, #f1c40f 100%)"  // 清晨花园
     ],
     辰时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20morning%20landscape%2C%20sunlight%2C%20mountains%2C%20village%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20morning%20market%2C%20busy%2C%20traditional%20architecture%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20morning%20garden%2C%20sunlight%2C%20flowers%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20morning%20river%2C%20boats%2C%20sunlight%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20morning%20scholar%20reading%2C%20garden%2C%20sunlight%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20morning%20farming%20scene%2C%20fields%2C%20peasants%2C%20traditional%20style&image_size=landscape_16_9"
+        "linear-gradient(135deg, #3498db 0%, #2ecc71 100%)", // 上午阳光
+        "linear-gradient(135deg, #2ecc71 0%, #3498db 100%)", // 上午花园
+        "linear-gradient(135deg, #3498db 0%, #9b59b6 100%)"  // 上午村庄
     ],
     巳时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20mid-morning%20landscape%2C%20sunlight%2C%20mountains%2C%20river%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20scholar%20in%20morning%20garden%2C%20traditional%20style%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20morning%20mountain%20path%2C%20traveler%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20mid-morning%20palace%2C%20sunlight%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20mid-morning%20garden%2C%20bamboo%2C%20sunlight%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20mid-morning%20river%2C%20fishing%20boats%2C%20mountains%2C%20ink%20painting&image_size=landscape_16_9"
+        "linear-gradient(135deg, #3498db 0%, #9b59b6 100%)", // 上午村庄
+        "linear-gradient(135deg, #9b59b6 0%, #3498db 100%)", // 上午山脉
+        "linear-gradient(135deg, #3498db 0%, #2ecc71 100%)"  // 上午河流
     ],
     午时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20noon%20landscape%2C%20bright%20sun%2C%20mountains%2C%20river%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20noon%20palace%20court%2C%20sunlight%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20noon%20village%2C%20quiet%2C%20sunlight%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20noon%20garden%2C%20sunlight%2C%20pavilion%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20noon%20mountain%20temple%2C%20bright%20sun%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20noon%20river%2C%20bright%20sun%2C%20boats%2C%20ink%20painting&image_size=landscape_16_9"
+        "linear-gradient(135deg, #3498db 0%, #ffffff 100%)", // 正午阳光
+        "linear-gradient(135deg, #ffffff 0%, #3498db 100%)", // 正午天空
+        "linear-gradient(135deg, #3498db 0%, #2ecc71 100%)"  // 正午花园
     ],
     未时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20afternoon%20landscape%2C%20sunlight%2C%20mountains%2C%20bamboo%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20afternoon%20tea%20garden%2C%20scholars%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20afternoon%20river%2C%20boats%2C%20mountains%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20afternoon%20palace%2C%20sunlight%2C%20gardens%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20afternoon%20scholar%20writing%2C%20pavilion%2C%20sunlight%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20afternoon%20farming%20scene%2C%20fields%2C%20peasants%2C%20traditional%20style&image_size=landscape_16_9"
+        "linear-gradient(135deg, #3498db 0%, #2ecc71 100%)", // 午后花园
+        "linear-gradient(135deg, #2ecc71 0%, #3498db 100%)", // 午后山脉
+        "linear-gradient(135deg, #3498db 0%, #9b59b6 100%)"  // 午后河流
     ],
     申时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20late%20afternoon%20landscape%2C%20sun%20lowering%2C%20mountains%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20afternoon%20market%20closing%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20afternoon%20farming%20scene%2C%20fields%2C%20peasants%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20late%20afternoon%20river%2C%20sun%20lowering%2C%20boats%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20late%20afternoon%20garden%2C%20sun%20lowering%2C%20pavilion%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20late%20afternoon%20mountain%20path%2C%20traveler%20returning%2C%20traditional%20style&image_size=landscape_16_9"
+        "linear-gradient(135deg, #3498db 0%, #9b59b6 100%)", // 下午河流
+        "linear-gradient(135deg, #9b59b6 0%, #e67e22 100%)", // 下午日落
+        "linear-gradient(135deg, #e67e22 0%, #3498db 100%)"  // 下午村庄
     ],
     酉时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunset%20landscape%2C%20mountains%2C%20river%2C%20golden%20light%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunset%20village%2C%20smoke%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunset%20mountain%20temple%2C%20golden%20light%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunset%20palace%2C%20golden%20light%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunset%20garden%2C%20golden%20light%2C%20pavilion%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20sunset%20river%2C%20golden%20hues%2C%20fishing%20boats%2C%20ink%20painting&image_size=landscape_16_9"
+        "linear-gradient(135deg, #e67e22 0%, #9b59b6 100%)", // 日落西方
+        "linear-gradient(135deg, #9b59b6 0%, #e67e22 100%)", // 黄昏天空
+        "linear-gradient(135deg, #e67e22 0%, #f1c40f 100%)"  // 黄昏村庄
     ],
     戌时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20evening%20landscape%2C%20dusk%2C%20mountains%2C%20village%20lights%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20evening%20palace%2C%20lanterns%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20evening%20garden%2C%20moonlight%2C%20lanterns%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20evening%20river%2C%20lanterns%2C%20boats%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20evening%20market%2C%20lanterns%2C%20busy%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20evening%20scholar%20reading%2C%20lantern%20light%2C%20traditional%20style&image_size=landscape_16_9"
+        "linear-gradient(135deg, #e67e22 0%, #f1c40f 100%)", // 黄昏村庄
+        "linear-gradient(135deg, #f1c40f 0%, #16213e 100%)", // 夜晚降临
+        "linear-gradient(135deg, #16213e 0%, #e67e22 100%)"  // 夜晚灯光
     ],
     亥时: [
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20landscape%2C%20moon%20and%20stars%2C%20village%20lights%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20palace%2C%20lanterns%2C%20traditional%20architecture&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20study%2C%20scholar%20reading%2C%20lantern%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20garden%2C%20moonlight%2C%20bamboo%2C%20pavilion%2C%20traditional%20style&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20mountain%20temple%2C%20moonlight%2C%20zen%2C%20ink%20painting&image_size=landscape_16_9",
-        "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20night%20river%2C%20moonlight%2C%20boat%2C%20traditional%20style&image_size=landscape_16_9"
+        "linear-gradient(135deg, #16213e 0%, #0f3460 100%)", // 夜晚河流
+        "linear-gradient(135deg, #0f3460 0%, #16213e 100%)", // 夜晚山脉
+        "linear-gradient(135deg, #16213e 0%, #0a0a2a 100%)"  // 深夜星空
     ]
 };
 
@@ -216,121 +180,38 @@ function updateColorByTime() {
     // 更新当前时辰
     currentChineseHour = chineseHour;
     
-    // 随机选择一张当前时辰的图片
-    const images = landscapeImages[chineseHour];
-    const randomImage = images[Math.floor(Math.random() * images.length)];
+    // 随机选择一个当前时辰的渐变背景
+    const gradients = landscapeImages[chineseHour];
+    const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
     
-    // 预加载图片，确保图片加载完成后再开始过渡
-    const img = new Image();
-    img.src = randomImage;
-    
-    img.onload = function() {
-        // 检查图片是否是占位符（包含生成中的提示）
-        if (randomImage.includes('text_to_image') && (this.width === 1 || this.height === 1)) {
-            // 图片可能是占位符，尝试使用下一张图片
-            loadNextImage(chineseHour);
-            return;
-        }
+    // 应用渐变背景到对应层
+    if (currentVisibleLayer === 1) {
+        // 当前可见的是层1，将新渐变设置到层2
+        backgroundLayer2.style.backgroundImage = randomGradient;
         
-        // 图片加载完成后开始过渡
-        if (currentVisibleLayer === 1) {
-            // 当前可见的是层1，将新图片设置到层2
-            backgroundLayer2.style.backgroundImage = `url('${randomImage}')`;
-            backgroundLayer2.style.backgroundSize = 'cover';
-            backgroundLayer2.style.backgroundPosition = 'center';
-            backgroundLayer2.style.backgroundRepeat = 'no-repeat';
-            
-            // 开始过渡：层2淡入，层1淡出
-            backgroundLayer2.style.opacity = '1';
-            backgroundLayer1.style.opacity = '0';
-            
-            // 更新当前可见层
-            currentVisibleLayer = 2;
-        } else {
-            // 当前可见的是层2，将新图片设置到层1
-            backgroundLayer1.style.backgroundImage = `url('${randomImage}')`;
-            backgroundLayer1.style.backgroundSize = 'cover';
-            backgroundLayer1.style.backgroundPosition = 'center';
-            backgroundLayer1.style.backgroundRepeat = 'no-repeat';
-            
-            // 开始过渡：层1淡入，层2淡出
-            backgroundLayer1.style.opacity = '1';
-            backgroundLayer2.style.opacity = '0';
-            
-            // 更新当前可见层
-            currentVisibleLayer = 1;
-        }
-    };
-    
-    // 图片加载失败时的备用方案
-    img.onerror = function() {
-        // 尝试使用下一张图片
-        loadNextImage(chineseHour);
-    };
+        // 开始过渡：层2淡入，层1淡出
+        backgroundLayer2.style.opacity = '1';
+        backgroundLayer1.style.opacity = '0';
+        
+        // 更新当前可见层
+        currentVisibleLayer = 2;
+    } else {
+        // 当前可见的是层2，将新渐变设置到层1
+        backgroundLayer1.style.backgroundImage = randomGradient;
+        
+        // 开始过渡：层1淡入，层2淡出
+        backgroundLayer1.style.opacity = '1';
+        backgroundLayer2.style.opacity = '0';
+        
+        // 更新当前可见层
+        currentVisibleLayer = 1;
+    }
     
     // 更新时辰信息
     currentColorElement.textContent = `当前时辰: ${chineseHour}（${hourDescription}）`;
 }
 
-// 加载下一张图片的函数
-function loadNextImage(chineseHour) {
-    const images = landscapeImages[chineseHour];
-    // 随机选择一张不同的图片
-    let newImage = images[Math.floor(Math.random() * images.length)];
-    
-    // 预加载新图片
-    const newImg = new Image();
-    newImg.src = newImage;
-    
-    newImg.onload = function() {
-        // 图片加载完成后开始过渡
-        if (currentVisibleLayer === 1) {
-            backgroundLayer2.style.backgroundImage = `url('${newImage}')`;
-            backgroundLayer2.style.backgroundSize = 'cover';
-            backgroundLayer2.style.backgroundPosition = 'center';
-            backgroundLayer2.style.backgroundRepeat = 'no-repeat';
-            backgroundLayer2.style.opacity = '1';
-            backgroundLayer1.style.opacity = '0';
-            currentVisibleLayer = 2;
-        } else {
-            backgroundLayer1.style.backgroundImage = `url('${newImage}')`;
-            backgroundLayer1.style.backgroundSize = 'cover';
-            backgroundLayer1.style.backgroundPosition = 'center';
-            backgroundLayer1.style.backgroundRepeat = 'no-repeat';
-            backgroundLayer1.style.opacity = '1';
-            backgroundLayer2.style.opacity = '0';
-            currentVisibleLayer = 1;
-        }
-    };
-    
-    newImg.onerror = function() {
-        // 如果还是失败，使用默认背景
-        useDefaultBackground();
-    };
-}
-
-// 使用默认背景的函数
-function useDefaultBackground() {
-    const defaultImage = "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20landscape%2C%20mountains%2C%20river%2C%20traditional%20architecture%2C%20ink%20painting%20style&image_size=landscape_16_9";
-    
-    if (currentVisibleLayer === 1) {
-        backgroundLayer2.style.backgroundImage = `url('${defaultImage}')`;
-        backgroundLayer2.style.backgroundSize = 'cover';
-        backgroundLayer2.style.backgroundPosition = 'center';
-        backgroundLayer2.style.backgroundRepeat = 'no-repeat';
-        backgroundLayer2.style.opacity = '1';
-        backgroundLayer1.style.opacity = '0';
-        currentVisibleLayer = 2;
-    } else {
-        backgroundLayer1.style.backgroundImage = `url('${defaultImage}')`;
-        backgroundLayer1.style.backgroundSize = 'cover';
-        backgroundLayer1.style.backgroundPosition = 'center';
-        backgroundLayer1.style.backgroundRepeat = 'no-repeat';
-        backgroundLayer1.style.opacity = '1';
-        backgroundLayer2.style.opacity = '0';
-        currentVisibleLayer = 1;
-    }
-}
+// 由于使用CSS渐变，不再需要图片加载相关函数
 
 // 页面加载完成后初始化
 window.onload = init;
