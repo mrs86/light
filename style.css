@@ -6,11 +6,46 @@
 
 body {
     font-family: Arial, sans-serif;
-    transition: background-color 1s ease;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 背景层样式 */
+.background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 1.5s ease-in-out;
+    z-index: -1;
+    /* 确保背景层在容器下方 */
+}
+
+/* 初始状态：第一个背景层可见（带默认图片），第二个背景层透明 */
+#background-layer-1 {
+    opacity: 1;
+    background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20landscape%2C%20mountains%2C%20river%2C%20traditional%20architecture%2C%20ink%20painting%20style&image_size=landscape_16_9');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#background-layer-2 {
+    opacity: 0;
+    /* 确保两个背景层重叠 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .container {

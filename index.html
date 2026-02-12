@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>时间与位置色调</title>
+    <title>中国十二时辰</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 背景层 -->
+    <div class="background-layer" id="background-layer-1"></div>
+    <div class="background-layer" id="background-layer-2"></div>
+    
     <div class="container">
-        <h1>时间与位置色调</h1>
-        <p>根据您的地理位置和当前时间，显示相应的色调</p>
+        <h1>中国十二时辰</h1>
+        <p>根据您的当前时间，感受中国古代时辰的光影变化</p>
         <div class="time-info">
-            <p id="current-time">加载中...</p>
-            <p id="current-location">加载中...</p>
+            <p id="current-time">正在获取时间...</p>
         </div>
         <div class="color-info">
-            <p id="current-color">加载中...</p>
+            <p id="current-color">正在计算时辰...</p>
         </div>
     </div>
     <script src="script.js"></script>
