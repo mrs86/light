@@ -213,5 +213,82 @@ function updateColorByTime() {
 
 // 由于使用CSS渐变，不再需要图片加载相关函数
 
+// 涟漪效果功能
+function initRippleEffect() {
+    const rippleContainer = document.getElementById('ripple-container');
+    let currentWaterWaves = [];
+    let lastRippleTime = 0;
+    const rippleInterval = 100; // 涟漪产生的时间间隔（毫秒）
+    
+    // 鼠标移动事件 - 蜻蜓点水效果（打水漂）
+    document.addEventListener('mousemove', function(e) {
+        // 检查时间间隔，控制涟漪产生频率
+        const now = Date.now();
+        if (now - lastRippleTime > rippleInterval) {
+            // 创建多个涟漪元素，形成层次感
+            for (let i = 1; i <= 3; i++) {
+                const ripple = document.createElement('div');
+                ripple.classList.add('ripple');
+                ripple.classList.add(`ripple-${i}`);
+                
+                // 设置涟漪位置和大小
+                const size = 50;
+                ripple.style.width = `${size}px`;
+                ripple.style.height = `${size}px`;
+                ripple.style.left = `${e.clientX - size / 2}px`;
+                ripple.style.top = `${e.clientY - size / 2}px`;
+                
+                // 添加到容器
+                rippleContainer.appendChild(ripple);
+                
+                // 动画结束后移除
+                setTimeout(() => {
+                    ripple.remove();
+                }, 2000);
+            }
+            
+            // 更新上次产生涟漪的时间
+            lastRippleTime = now;
+        }
+    });
+    
+    // 鼠标按下事件 - 水波效果
+    document.addEventListener('mousedown', function(e) {
+        // 如果已经存在水波，先移除
+        if (currentWaterWaves.length > 0) {
+            currentWaterWaves.forEach(wave => wave.remove());
+            currentWaterWaves = [];
+        }
+        
+        // 创建多个水波元素，形成层次感
+        for (let i = 1; i <= 3; i++) {
+            const waterWave = document.createElement('div');
+            waterWave.classList.add('water-wave');
+            waterWave.classList.add(`water-wave-${i}`);
+            
+            // 设置水波位置和大小
+            const size = 100;
+            waterWave.style.width = `${size}px`;
+            waterWave.style.height = `${size}px`;
+            waterWave.style.left = `${e.clientX - size / 2}px`;
+            waterWave.style.top = `${e.clientY - size / 2}px`;
+            
+            // 添加到容器
+            rippleContainer.appendChild(waterWave);
+            currentWaterWaves.push(waterWave);
+        }
+        
+        // 鼠标释放事件 - 停止水波
+        document.addEventListener('mouseup', function stopWave() {
+            currentWaterWaves.forEach(wave => wave.remove());
+            currentWaterWaves = [];
+            document.removeEventListener('mouseup', stopWave);
+        });
+    });
+}
+
 // 页面加载完成后初始化
-window.onload = init;
+window.onload = function() {
+    init();
+    initRippleEffect();
+};
