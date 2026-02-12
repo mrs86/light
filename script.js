@@ -86,67 +86,67 @@ const chineseHours = [
     { name: '亥时', start: 21, end: 23, description: '人定' }
 ];
 
-// 不同时辰的背景渐变色
+// 不同时辰的背景渐变色（根据日照变化）
 const landscapeImages = {
     子时: [
-        "linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%)", // 深夜星空
-        "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)", // 深夜山脉
-        "linear-gradient(135deg, #0f3460 0%, #16213e 100%)"  // 深夜河流
+        "linear-gradient(135deg, #0a0a2a 0%, #1a1a4a 100%)", // 深夜：深蓝黑色
+        "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)", // 深夜：深紫色
+        "linear-gradient(135deg, #0f3460 0%, #16213e 100%)"  // 深夜：藏青色
     ],
     丑时: [
-        "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)", // 凌晨山脉
-        "linear-gradient(135deg, #16213e 0%, #0f3460 100%)", // 凌晨河流
-        "linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"  // 凌晨村庄
+        "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)", // 凌晨：深紫色
+        "linear-gradient(135deg, #16213e 0%, #0f3460 100%)", // 凌晨：藏青色
+        "linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%)"  // 凌晨：深蓝色
     ],
     寅时: [
-        "linear-gradient(135deg, #16213e 0%, #f1c40f 100%)", // 黎明曙光
-        "linear-gradient(135deg, #f1c40f 0%, #e67e22 100%)", // 日出东方
-        "linear-gradient(135deg, #e67e22 0%, #16213e 100%)"  // 黎明村庄
+        "linear-gradient(135deg, #16213e 0%, #4a6fa5 100%)", // 黎明：深蓝色到淡蓝色
+        "linear-gradient(135deg, #4a6fa5 0%, #6b9ac4 100%)", // 黎明：淡蓝色到天蓝色
+        "linear-gradient(135deg, #6b9ac4 0%, #4a6fa5 100%)"  // 黎明：天蓝色到淡蓝色
     ],
     卯时: [
-        "linear-gradient(135deg, #f1c40f 0%, #e67e22 100%)", // 日出东方
-        "linear-gradient(135deg, #e67e22 0%, #3498db 100%)", // 清晨天空
-        "linear-gradient(135deg, #3498db 0%, #f1c40f 100%)"  // 清晨花园
+        "linear-gradient(135deg, #6b9ac4 0%, #91c8e4 100%)", // 日出：天蓝色到浅蓝色
+        "linear-gradient(135deg, #91c8e4 0%, #a7d8f4 100%)", // 日出：浅蓝色到淡蓝色
+        "linear-gradient(135deg, #a7d8f4 0%, #91c8e4 100%)"  // 日出：淡蓝色到浅蓝色
     ],
     辰时: [
-        "linear-gradient(135deg, #3498db 0%, #2ecc71 100%)", // 上午阳光
-        "linear-gradient(135deg, #2ecc71 0%, #3498db 100%)", // 上午花园
-        "linear-gradient(135deg, #3498db 0%, #9b59b6 100%)"  // 上午村庄
+        "linear-gradient(135deg, #91c8e4 0%, #c9e6f6 100%)", // 上午：浅蓝色到亮蓝色
+        "linear-gradient(135deg, #c9e6f6 0%, #e6f3f8 100%)", // 上午：亮蓝色到淡蓝色
+        "linear-gradient(135deg, #e6f3f8 0%, #c9e6f6 100%)"  // 上午：淡蓝色到亮蓝色
     ],
     巳时: [
-        "linear-gradient(135deg, #3498db 0%, #9b59b6 100%)", // 上午村庄
-        "linear-gradient(135deg, #9b59b6 0%, #3498db 100%)", // 上午山脉
-        "linear-gradient(135deg, #3498db 0%, #2ecc71 100%)"  // 上午河流
+        "linear-gradient(135deg, #c9e6f6 0%, #ffffff 100%)", // 上午：亮蓝色到白色
+        "linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%)", // 上午：白色到淡蓝色
+        "linear-gradient(135deg, #f0f8ff 0%, #c9e6f6 100%)"  // 上午：淡蓝色到亮蓝色
     ],
     午时: [
-        "linear-gradient(135deg, #3498db 0%, #ffffff 100%)", // 正午阳光
-        "linear-gradient(135deg, #ffffff 0%, #3498db 100%)", // 正午天空
-        "linear-gradient(135deg, #3498db 0%, #2ecc71 100%)"  // 正午花园
+        "linear-gradient(135deg, #ffffff 0%, #fffff0 100%)", // 正午：白色到亮黄色
+        "linear-gradient(135deg, #fffff0 0%, #ffffff 100%)", // 正午：亮黄色到白色
+        "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)"  // 正午：白色到淡灰色
     ],
     未时: [
-        "linear-gradient(135deg, #3498db 0%, #2ecc71 100%)", // 午后花园
-        "linear-gradient(135deg, #2ecc71 0%, #3498db 100%)", // 午后山脉
-        "linear-gradient(135deg, #3498db 0%, #9b59b6 100%)"  // 午后河流
+        "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)", // 午后：白色到淡灰色
+        "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)", // 午后：淡灰色到灰色
+        "linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%)"  // 午后：灰色到淡灰色
     ],
     申时: [
-        "linear-gradient(135deg, #3498db 0%, #9b59b6 100%)", // 下午河流
-        "linear-gradient(135deg, #9b59b6 0%, #e67e22 100%)", // 下午日落
-        "linear-gradient(135deg, #e67e22 0%, #3498db 100%)"  // 下午村庄
+        "linear-gradient(135deg, #e9ecef 0%, #f3d7ca 100%)", // 下午：灰色到淡橙色
+        "linear-gradient(135deg, #f3d7ca 0%, #f8c4b4 100%)", // 下午：淡橙色到浅红色
+        "linear-gradient(135deg, #f8c4b4 0%, #f3d7ca 100%)"  // 下午：浅红色到淡橙色
     ],
     酉时: [
-        "linear-gradient(135deg, #e67e22 0%, #9b59b6 100%)", // 日落西方
-        "linear-gradient(135deg, #9b59b6 0%, #e67e22 100%)", // 黄昏天空
-        "linear-gradient(135deg, #e67e22 0%, #f1c40f 100%)"  // 黄昏村庄
+        "linear-gradient(135deg, #f8c4b4 0%, #f9a87a 100%)", // 黄昏：浅红色到橙色
+        "linear-gradient(135deg, #f9a87a 0%, #f57c00 100%)", // 黄昏：橙色到深橙色
+        "linear-gradient(135deg, #f57c00 0%, #f9a87a 100%)"  // 黄昏：深橙色到橙色
     ],
     戌时: [
-        "linear-gradient(135deg, #e67e22 0%, #f1c40f 100%)", // 黄昏村庄
-        "linear-gradient(135deg, #f1c40f 0%, #16213e 100%)", // 夜晚降临
-        "linear-gradient(135deg, #16213e 0%, #e67e22 100%)"  // 夜晚灯光
+        "linear-gradient(135deg, #f57c00 0%, #d84315 100%)", // 傍晚：深橙色到深红色
+        "linear-gradient(135deg, #d84315 0%, #4e342e 100%)", // 傍晚：深红色到深棕色
+        "linear-gradient(135deg, #4e342e 0%, #f57c00 100%)"  // 傍晚：深棕色到深橙色
     ],
     亥时: [
-        "linear-gradient(135deg, #16213e 0%, #0f3460 100%)", // 夜晚河流
-        "linear-gradient(135deg, #0f3460 0%, #16213e 100%)", // 夜晚山脉
-        "linear-gradient(135deg, #16213e 0%, #0a0a2a 100%)"  // 深夜星空
+        "linear-gradient(135deg, #4e342e 0%, #3e2723 100%)", // 夜晚：深棕色到深褐色
+        "linear-gradient(135deg, #3e2723 0%, #263238 100%)", // 夜晚：深褐色到深灰色
+        "linear-gradient(135deg, #263238 0%, #4e342e 100%)"  // 夜晚：深灰色到深棕色
     ]
 };
 
