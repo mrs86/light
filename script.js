@@ -225,6 +225,13 @@ function updateColorByTime() {
     img.src = randomImage;
     
     img.onload = function() {
+        // 检查图片是否是占位符（包含生成中的提示）
+        if (randomImage.includes('text_to_image') && (this.width === 1 || this.height === 1)) {
+            // 图片可能是占位符，尝试使用下一张图片
+            loadNextImage(chineseHour);
+            return;
+        }
+        
         // 图片加载完成后开始过渡
         if (currentVisibleLayer === 1) {
             // 当前可见的是层1，将新图片设置到层2
@@ -257,16 +264,72 @@ function updateColorByTime() {
     
     // 图片加载失败时的备用方案
     img.onerror = function() {
-        // 即使图片加载失败，也继续执行过渡，避免卡住
-        if (currentVisibleLayer === 1) {
-            currentVisibleLayer = 2;
-        } else {
-            currentVisibleLayer = 1;
-        }
+        // 尝试使用下一张图片
+        loadNextImage(chineseHour);
     };
     
     // 更新时辰信息
     currentColorElement.textContent = `当前时辰: ${chineseHour}（${hourDescription}）`;
+}
+
+// 加载下一张图片的函数
+function loadNextImage(chineseHour) {
+    const images = landscapeImages[chineseHour];
+    // 随机选择一张不同的图片
+    let newImage = images[Math.floor(Math.random() * images.length)];
+    
+    // 预加载新图片
+    const newImg = new Image();
+    newImg.src = newImage;
+    
+    newImg.onload = function() {
+        // 图片加载完成后开始过渡
+        if (currentVisibleLayer === 1) {
+            backgroundLayer2.style.backgroundImage = `url('${newImage}')`;
+            backgroundLayer2.style.backgroundSize = 'cover';
+            backgroundLayer2.style.backgroundPosition = 'center';
+            backgroundLayer2.style.backgroundRepeat = 'no-repeat';
+            backgroundLayer2.style.opacity = '1';
+            backgroundLayer1.style.opacity = '0';
+            currentVisibleLayer = 2;
+        } else {
+            backgroundLayer1.style.backgroundImage = `url('${newImage}')`;
+            backgroundLayer1.style.backgroundSize = 'cover';
+            backgroundLayer1.style.backgroundPosition = 'center';
+            backgroundLayer1.style.backgroundRepeat = 'no-repeat';
+            backgroundLayer1.style.opacity = '1';
+            backgroundLayer2.style.opacity = '0';
+            currentVisibleLayer = 1;
+        }
+    };
+    
+    newImg.onerror = function() {
+        // 如果还是失败，使用默认背景
+        useDefaultBackground();
+    };
+}
+
+// 使用默认背景的函数
+function useDefaultBackground() {
+    const defaultImage = "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20ancient%20landscape%2C%20mountains%2C%20river%2C%20traditional%20architecture%2C%20ink%20painting%20style&image_size=landscape_16_9";
+    
+    if (currentVisibleLayer === 1) {
+        backgroundLayer2.style.backgroundImage = `url('${defaultImage}')`;
+        backgroundLayer2.style.backgroundSize = 'cover';
+        backgroundLayer2.style.backgroundPosition = 'center';
+        backgroundLayer2.style.backgroundRepeat = 'no-repeat';
+        backgroundLayer2.style.opacity = '1';
+        backgroundLayer1.style.opacity = '0';
+        currentVisibleLayer = 2;
+    } else {
+        backgroundLayer1.style.backgroundImage = `url('${defaultImage}')`;
+        backgroundLayer1.style.backgroundSize = 'cover';
+        backgroundLayer1.style.backgroundPosition = 'center';
+        backgroundLayer1.style.backgroundRepeat = 'no-repeat';
+        backgroundLayer1.style.opacity = '1';
+        backgroundLayer2.style.opacity = '0';
+        currentVisibleLayer = 1;
+    }
 }
 
 // 页面加载完成后初始化
